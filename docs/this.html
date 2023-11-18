@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script>
+      var a = 1;
+      function fun1() {
+        var a = 2;
+        console.log(this.a + a); // output 3, this.a = 1;
+      }
+
+      function func2() {
+        var a = 10;
+        fun1(); // since fun1 is not called as a method of an object, so this refers to the global object
+      }
+
+      func2();
+
+      // the difference in how this is treated in regular functions versus arrow functions
+      var c = 1;
+      var obj = {
+        c: 2,
+        func1: function () {
+          console.log(this.c);
+        },
+        func2: () => {
+          console.log(this.c); //When obj.func2() is called, this inside func2 (an arrow function) does not refer to obj. Instead, it refers to the this value of the lexical context where func2 was defined, which is the global context in this case.
+        },
+      };
+      obj.func1(); //2
+      obj.func2(); //1
+    </script>
+  </body>
+</html>
