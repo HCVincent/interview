@@ -28,6 +28,22 @@
       };
       obj.func1(); //2
       obj.func2(); //1
+
+      const personObj = {
+        name: "aperson",
+        say() {
+          console.log(`hello,${this.name}`);
+        },
+      };
+      const personFunc = personObj.say;
+      personObj.say(); //hello,aperson
+      personFunc(); //hello,
+      setTimeout(personObj.say, 100); //hello,
+      setTimeout(personFunc, 200); //hello,
+      setTimeout(function () {
+        personObj.say();
+      }, 300); // hello,aperson
+      setTimeout(() => personObj.say(), 400); //hello,aperson
     </script>
   </body>
 </html>
