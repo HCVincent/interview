@@ -59,6 +59,7 @@
 var a = 1;
 function fun1() {
   a = 2;
+  console.log(this)
   console.log(this.a + a);
 }
 
