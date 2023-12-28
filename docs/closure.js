@@ -15,12 +15,19 @@ function createCounter() {
 }
 
 const counter = createCounter();
+console.log(counter.count); //undefined
 counter.increment();
 counter.increment();
-console.log(counter.getCurrentCount()); // Outputs: 1
+console.log(counter.getCurrentCount()); // Outputs: 2
 
 // Scenario 2
 // Event Handlers and Callbacks: Closures are often used in event handlers and callbacks to maintain state across asynchronous operations.
+
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(() => {
+//     console.log(i); // Correctly logs 5,5,5,5,5
+//   }, i * 100);
+// }
 
 for (let i = 0; i < 5; i++) {
   setTimeout(() => {
@@ -47,7 +54,7 @@ function multipleCounter() {
   };
 }
 
-const myCounter = createCounter();
+const myCounter = multipleCounter();
 console.log(myCounter.increment()); // Outputs: 1
 console.log(myCounter.increment()); // Outputs: 2
 console.log(myCounter.decrement()); // Outputs: 1
